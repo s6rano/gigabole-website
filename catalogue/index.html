@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue - Gigabole</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cream': '#FFFDF8',
+                        'primary': '#0066CC',
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-cream text-body">
+    
+    <!-- Header -->
+    <header id="header"></header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- En-tête du catalogue -->
+        <section class="container mx-auto px-6 py-16">
+            <div class="max-w-3xl mb-12">
+                <h1 class="font-serif text-5xl md:text-6xl font-bold text-primary mb-6">Catalogue</h1>
+                <p class="text-xl text-gray-700 leading-relaxed">
+                    Découvrez notre sélection de livres publiés. Chaque ouvrage est le fruit d'un travail 
+                    collaboratif entre auteurs et éditeurs, porté par notre passion pour la littérature.
+                </p>
+            </div>
+
+            <!-- Filtres -->
+            <div class="mb-12">
+                <div class="flex flex-wrap gap-4">
+                    <button class="filter-btn active px-6 py-2 border border-gray-300 bg-white hover:border-primary hover:text-primary transition-all font-sans" data-category="all">
+                        Tous
+                    </button>
+                    <button class="filter-btn px-6 py-2 border border-gray-300 bg-white hover:border-primary hover:text-primary transition-all font-sans" data-category="Fiction">
+                        Fiction
+                    </button>
+                    <button class="filter-btn px-6 py-2 border border-gray-300 bg-white hover:border-primary hover:text-primary transition-all font-sans" data-category="Essai">
+                        Essai
+                    </button>
+                    <button class="filter-btn px-6 py-2 border border-gray-300 bg-white hover:border-primary hover:text-primary transition-all font-sans" data-category="Biographie">
+                        Biographie
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grille de livres -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="books-grid">
+                <!-- Les livres seront chargés via JavaScript -->
+                <div class="text-center text-gray-500 col-span-full">Chargement des livres...</div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer id="footer"></footer>
+    
+    <!-- Load Components -->
+    <script src="../js/books-data.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/catalogue.js"></script>
+</body>
+</html>
