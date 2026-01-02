@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigabole - Éditeur indépendant</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cream': '#FFFDF8',
+                        'primary': '#0066CC',
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-cream text-body">
+    
+    <!-- Header -->
+    <header id="header"></header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Page d'accueil - Contenu à venir -->
+        <section class="container mx-auto px-6 py-16">
+            <h1 class="font-serif text-5xl font-bold text-primary mb-6">Bienvenue chez Gigabole</h1>
+            <p class="text-lg text-gray-700 max-w-2xl">Éditeur indépendant dédié à la publication de livres de qualité.</p>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer id="footer"></footer>
+    
+    <!-- Load Components -->
+    <script src="js/components.js"></script>
+</body>
+</html>
