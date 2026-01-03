@@ -41,72 +41,54 @@
     <header id="header"></header>
     
     <!-- Main Content -->
-    <main>
+    <main class="bg-cream">
         <!-- Hero Section -->
-        <section class="relative overflow-hidden py-32 px-6">
-            <!-- Formes organiques en arrière-plan -->
-            <div class="organic-blob blob-blue" style="width: 600px; height: 600px; top: -200px; right: -200px;"></div>
-            <div class="organic-blob blob-coral" style="width: 400px; height: 400px; bottom: -100px; left: -100px;"></div>
-            
-            <div class="container mx-auto relative z-10">
-                <div class="max-w-4xl fade-in-up">
-                    <h1 class="title-xxl font-serif mb-8">
-                        <span class="title-expressive">
-                            Des <span class="highlight highlight-primary">livres</span> qui<br>
-                            <span class="highlight">transforment</span>
-                        </span>
-                    </h1>
-                    <p class="text-xl md:text-2xl text-gray-700 mb-12 leading-relaxed max-w-2xl">
-                        Éditeur indépendant dédié à la publication de livres de qualité. 
-                        Nous mettons en lumière des voix singulières et des récits qui marquent.
-                    </p>
-                    <a href="catalogue/index.html" class="inline-block px-10 py-5 bg-primary text-white font-sans font-semibold text-lg interactive-button rounded-none">
-                        Découvrir le catalogue
-                    </a>
-                </div>
+        <section class="py-16 md:py-24 px-6">
+            <div class="container mx-auto max-w-4xl">
+                <h1 class="font-serif text-5xl md:text-6xl font-semibold text-gray-900 mb-6 leading-tight">
+                    Des livres qui transforment
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
+                    Éditeur indépendant dédié à la publication de livres de qualité. 
+                    Nous mettons en lumière des voix singulières et des récits qui marquent.
+                </p>
+                <a href="catalogue/index.html" class="inline-block px-6 py-3 bg-gray-900 text-white font-sans text-sm font-medium hover:bg-gray-800 transition-colors">
+                    Découvrir le catalogue
+                </a>
             </div>
         </section>
 
-        <!-- Section Départements -->
-        <section class="py-20 px-6 relative">
-            <div class="container mx-auto">
-                <div class="max-w-3xl mb-16 fade-in-up">
-                    <h2 class="font-serif text-5xl md:text-6xl mb-6">
-                        <span class="title-expressive">
-                            Nos <span class="highlight highlight-sage">collections</span>
-                        </span>
-                    </h2>
-                    <p class="text-xl text-gray-600">Des univers distincts pour tous les lecteurs</p>
+        <!-- Collections -->
+        <section class="py-16 px-6 border-t border-gray-200">
+            <div class="container mx-auto max-w-6xl">
+                <div class="mb-12">
+                    <h2 class="font-serif text-3xl font-semibold text-gray-900 mb-3">Collections</h2>
+                    <p class="text-gray-600">Des univers distincts pour tous les lecteurs</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="dept-jeunesse p-8 interactive-card glass-effect fade-in-up" style="transition-delay: 0.1s;">
-                        <h3 class="font-serif text-3xl font-bold mb-4">Jeunesse</h3>
-                        <p class="text-white/90 leading-relaxed">Des histoires qui font grandir, rêver et découvrir le monde.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="border border-gray-200 p-6 hover:border-gray-300 transition-colors">
+                        <h3 class="font-serif text-xl font-semibold text-gray-900 mb-3">Jeunesse</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Des histoires qui font grandir, rêver et découvrir le monde.</p>
                     </div>
-                    <div class="dept-tous-publics p-8 interactive-card glass-effect fade-in-up" style="transition-delay: 0.2s;">
-                        <h3 class="font-serif text-3xl font-bold mb-4">Tous Publics</h3>
-                        <p class="text-white/90 leading-relaxed">Des récits universels qui parlent à tous les âges.</p>
+                    <div class="border border-gray-200 p-6 hover:border-gray-300 transition-colors">
+                        <h3 class="font-serif text-xl font-semibold text-gray-900 mb-3">Tous Publics</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Des récits universels qui parlent à tous les âges.</p>
                     </div>
-                    <div class="dept-pratique p-8 interactive-card glass-effect fade-in-up" style="transition-delay: 0.3s;">
-                        <h3 class="font-serif text-3xl font-bold mb-4">Pratique</h3>
-                        <p class="text-white/90 leading-relaxed">Des guides pour apprendre, comprendre et agir.</p>
+                    <div class="border border-gray-200 p-6 hover:border-gray-300 transition-colors">
+                        <h3 class="font-serif text-xl font-semibold text-gray-900 mb-3">Pratique</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Des guides pour apprendre, comprendre et agir.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Sélection de livres -->
-        <section class="py-20 px-6 bg-cream relative">
-            <div class="organic-blob blob-sage" style="width: 500px; height: 500px; top: 50px; right: 10%;"></div>
-            
-            <div class="container mx-auto relative z-10">
-                <div class="max-w-3xl mb-16 fade-in-up">
-                    <h2 class="font-serif text-5xl md:text-6xl mb-6">
-                        <span class="title-expressive">
-                            Notre <span class="highlight highlight-coral">sélection</span>
-                        </span>
-                    </h2>
+        <section class="py-16 px-6 border-t border-gray-200">
+            <div class="container mx-auto max-w-6xl">
+                <div class="mb-12">
+                    <h2 class="font-serif text-3xl font-semibold text-gray-900 mb-3">Notre sélection</h2>
+                    <p class="text-gray-600">Découvrez nos dernières publications</p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" id="featured-books">
@@ -114,8 +96,8 @@
                     <div class="text-center text-gray-500">Chargement des livres...</div>
                 </div>
                 
-                <div class="text-center fade-in-up">
-                    <a href="catalogue/index.html" class="inline-block text-primary font-sans text-lg font-semibold animated-link">
+                <div class="text-center">
+                    <a href="catalogue/index.html" class="inline-block text-gray-900 font-sans text-sm font-medium hover:underline">
                         Voir tous les livres →
                     </a>
                 </div>
@@ -123,59 +105,47 @@
         </section>
 
         <!-- À propos -->
-        <section id="apropos" class="py-20 px-6 relative">
-            <div class="organic-blob blob-mustard" style="width: 400px; height: 400px; bottom: -100px; left: -100px;"></div>
-            
-            <div class="container mx-auto relative z-10">
-                <div class="max-w-4xl fade-in-up">
-                    <h2 class="font-serif text-5xl md:text-6xl mb-12">
-                        <span class="title-expressive">
-                            À <span class="highlight highlight-mustard">propos</span>
-                        </span>
-                    </h2>
-                    <div class="space-y-8 text-gray-700">
-                        <p class="text-xl leading-relaxed">
-                            Gigabole est un éditeur indépendant né de la <strong>passion</strong> pour la littérature et l'édition de qualité. 
-                            Nous croyons en la diversité des voix et en la puissance des récits pour éclairer, émouvoir et transformer.
-                        </p>
-                        <p class="text-xl leading-relaxed">
-                            Notre maison d'édition s'engage à accompagner les auteurs dans leur démarche créative, 
-                            en leur offrant un espace où leur vision peut s'épanouir pleinement.
-                        </p>
-                        <p class="text-xl leading-relaxed">
-                            Chaque livre que nous publions est le fruit d'un travail collaboratif, attentif aux détails, 
-                            où le respect de l'œuvre et de son auteur guide nos décisions.
-                        </p>
-                    </div>
+        <section id="apropos" class="py-16 px-6 border-t border-gray-200">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="font-serif text-3xl font-semibold text-gray-900 mb-8">À propos</h2>
+                <div class="space-y-6 text-gray-700">
+                    <p class="leading-relaxed">
+                        Gigabole est un éditeur indépendant né de la <strong>passion</strong> pour la littérature et l'édition de qualité. 
+                        Nous croyons en la diversité des voix et en la puissance des récits pour éclairer, émouvoir et transformer.
+                    </p>
+                    <p class="leading-relaxed">
+                        Notre maison d'édition s'engage à accompagner les auteurs dans leur démarche créative, 
+                        en leur offrant un espace où leur vision peut s'épanouir pleinement.
+                    </p>
+                    <p class="leading-relaxed">
+                        Chaque livre que nous publions est le fruit d'un travail collaboratif, attentif aux détails, 
+                        où le respect de l'œuvre et de son auteur guide nos décisions.
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- Contact -->
-        <section id="contact" class="py-20 px-6 bg-gray-900 text-white relative">
-            <div class="container mx-auto max-w-4xl fade-in-up">
-                <h2 class="font-serif text-5xl md:text-6xl mb-12">
-                    <span class="title-expressive">
-                        <span class="highlight highlight-primary">Contact</span>
-                    </span>
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <section id="contact" class="py-16 px-6 border-t border-gray-200">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="font-serif text-3xl font-semibold text-gray-900 mb-8">Contact</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="font-sans font-semibold text-xl mb-4 text-white">Email</h3>
-                        <a href="mailto:contact@gigabole.fr" class="text-primary hover:opacity-80 transition-opacity text-lg">
+                        <h3 class="font-sans font-semibold text-gray-900 mb-3">Email</h3>
+                        <a href="mailto:contact@gigabole.fr" class="text-gray-600 hover:text-gray-900 transition-colors">
                             contact@gigabole.fr
                         </a>
                     </div>
                     <div>
-                        <h3 class="font-sans font-semibold text-xl mb-4 text-white">Manuscrits</h3>
-                        <p class="text-gray-300 leading-relaxed">
+                        <h3 class="font-sans font-semibold text-gray-900 mb-3">Manuscrits</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
                             Pour soumettre un manuscrit, veuillez envoyer votre projet à l'adresse email ci-dessus 
                             avec un résumé et quelques extraits de votre travail.
                         </p>
                     </div>
                     <div class="md:col-span-2">
-                        <h3 class="font-sans font-semibold text-xl mb-4 text-white">Réseaux sociaux</h3>
-                        <p class="text-gray-300 leading-relaxed">
+                        <h3 class="font-sans font-semibold text-gray-900 mb-3">Réseaux sociaux</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
                             Suivez-nous pour découvrir nos nouveautés et actualités éditoriales.
                         </p>
                     </div>
@@ -191,6 +161,5 @@
     <script src="js/books-data.js"></script>
     <script src="js/components.js"></script>
     <script src="js/home.js"></script>
-    <script src="js/scroll-animations.js"></script>
 </body>
 </html>

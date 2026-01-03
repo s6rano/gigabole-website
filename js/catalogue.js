@@ -18,22 +18,22 @@ function loadAllBooks(category = 'all') {
     }
 
     grid.innerHTML = booksToShow.map(book => `
-        <a href="../livre/index.html?id=${book.id}" class="group block">
-            <div class="bg-white border border-gray-200 p-6 hover:shadow-lg transition-all duration-200 h-full">
-                <div class="aspect-[3/4] bg-gray-100 mb-4 flex items-center justify-center">
+        <article class="border border-gray-200 hover:border-gray-300 transition-colors">
+            <a href="../livre/index.html?id=${book.id}" class="block p-6 h-full flex flex-col group">
+                <div class="aspect-[3/4] bg-gray-50 mb-4 flex items-center justify-center">
                     <span class="text-gray-400 text-sm">Couverture</span>
                 </div>
-                <h3 class="font-serif text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                <h3 class="font-serif text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
                     ${book.title}
                 </h3>
                 <p class="font-sans text-sm text-gray-600 mb-3">${book.author}</p>
-                <p class="font-sans text-xs text-gray-500 mb-3 line-clamp-2">${book.description}</p>
-                <div class="flex items-center justify-between text-xs text-gray-400">
+                <p class="font-sans text-sm text-gray-500 line-clamp-2 flex-grow mb-4">${book.description}</p>
+                <div class="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
                     <span>${book.year}</span>
                     <span>${book.category}</span>
                 </div>
-            </div>
-        </a>
+            </a>
+        </article>
     `).join('');
 }
 
@@ -49,7 +49,7 @@ function setupFilters() {
             });
             
             // Ajouter la classe active au bouton cliqué
-            this.classList.add('active', 'border-primary', 'text-primary');
+            this.classList.add('active', 'border-gray-900', 'bg-gray-50', 'font-semibold');
             this.classList.remove('border-gray-300');
             
             // Filtrer les livres

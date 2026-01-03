@@ -45,19 +45,19 @@ function loadBookDetails() {
                 <!-- Couverture -->
                 <div class="flex justify-center lg:justify-start">
                     <div class="w-full max-w-md">
-                        <div class="aspect-[3/4] bg-gray-100 border border-gray-200 flex items-center justify-center">
-                            <span class="text-gray-400">Couverture</span>
+                        <div class="aspect-[3/4] bg-gray-50 border border-gray-200 flex items-center justify-center">
+                            <span class="text-gray-400 text-sm">Couverture</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Informations -->
-                <div class="space-y-6">
+                <div class="space-y-8">
                     <div>
-                        <h1 class="font-serif text-4xl md:text-5xl font-bold text-primary mb-4">
+                        <h1 class="font-serif text-3xl md:text-4xl font-semibold text-gray-900 mb-4 leading-tight">
                             ${book.title}
                         </h1>
-                        <p class="font-sans text-xl text-gray-700 mb-2">${book.author}</p>
+                        <p class="font-sans text-lg text-gray-700 mb-3">${book.author}</p>
                         <div class="flex items-center gap-4 text-sm text-gray-500">
                             <span>${book.year}</span>
                             <span>•</span>
@@ -68,14 +68,14 @@ function loadBookDetails() {
                     </div>
                     
                     <div class="border-t border-gray-200 pt-6">
-                        <h2 class="font-serif text-2xl font-semibold text-gray-900 mb-4">Description</h2>
-                        <p class="font-sans text-gray-700 leading-relaxed text-lg">
+                        <h2 class="font-serif text-xl font-semibold text-gray-900 mb-4">Description</h2>
+                        <p class="font-sans text-gray-600 leading-relaxed">
                             ${book.description}
                         </p>
                     </div>
                     
                     <div class="border-t border-gray-200 pt-6">
-                        <h3 class="font-sans font-semibold text-gray-900 mb-2">Détails</h3>
+                        <h3 class="font-sans font-semibold text-gray-900 mb-4 text-sm uppercase tracking-wide">Détails</h3>
                         <dl class="space-y-2 text-sm">
                             <div class="flex">
                                 <dt class="font-medium text-gray-700 w-24">ISBN :</dt>
@@ -96,18 +96,10 @@ function loadBookDetails() {
                         </dl>
                     </div>
                     
-                    <div class="pt-4">
-                        <a href="../catalogue/index.html" class="inline-block text-primary hover:underline font-sans">
+                    <div class="border-t border-gray-200 pt-6">
+                        <a href="../catalogue/index.html" class="inline-block text-gray-600 hover:text-gray-900 font-sans text-sm transition-colors">
                             ← Retour au catalogue
                         </a>
-                    </div>
-                    
-                    <!-- Navigation vers autres livres -->
-                    <div class="border-t border-gray-200 pt-6 mt-6">
-                        <div class="flex flex-wrap gap-4 text-sm">
-                            <span class="text-gray-500">Catégorie:</span>
-                            <a href="../catalogue/index.html" class="text-primary hover:underline">${book.category}</a>
-                        </div>
                     </div>
                 </div>
             </div>
