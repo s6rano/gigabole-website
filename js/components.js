@@ -27,10 +27,9 @@ function loadHeader() {
             <nav class="container mx-auto px-6 py-6">
                 <div class="flex items-center justify-between">
                     <div>
-                        <a href="${basePath}index.html" class="font-serif text-xl font-semibold text-gray-900 hover:text-primary transition-colors">
-                            Gigabole
+                        <a href="${basePath}index.html" class="flex items-center">
+                            <img src="${basePath}images/logo-gigabole_bleu-sur-transparent.png" alt="Gigabole éditions" class="h-8 md:h-10">
                         </a>
-                        <p class="text-xs text-gray-500 mt-1">Éditeur indépendant</p>
                     </div>
                     <ul class="flex items-center space-x-6 font-sans text-sm">
                         <li>
@@ -71,7 +70,7 @@ function loadFooter() {
             <div class="container mx-auto px-6 py-12">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                     <div>
-                        <h3 class="font-serif text-lg font-semibold text-gray-900 mb-3">Gigabole</h3>
+                        <img src="${basePath}images/monogramme-gigabole_blanc-sur-bleu.png" alt="Gigabole éditions" class="h-12 mb-3">
                         <p class="text-gray-600 text-sm leading-relaxed">
                             Éditeur indépendant dédié à la publication de livres de qualité.
                         </p>

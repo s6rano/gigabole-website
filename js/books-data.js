@@ -7,7 +7,7 @@ const books = [
         description: 'Un récit poétique qui explore les paysages intérieurs de l\'âme humaine à travers un voyage initiatique.',
         cover: 'images/covers/livre-1.jpg',
         year: 2024,
-        category: 'Fiction',
+        category: 'Jeunesse',
         pages: 280,
         isbn: '978-2-1234-5678-9'
     },
@@ -18,7 +18,7 @@ const books = [
         description: 'Une réflexion profonde sur la communication et la puissance du silence dans notre monde moderne.',
         cover: 'images/covers/livre-2.jpg',
         year: 2023,
-        category: 'Essai',
+        category: 'Pratique',
         pages: 192,
         isbn: '978-2-1234-5679-6'
     },
@@ -29,7 +29,7 @@ const books = [
         description: 'Un roman historique qui nous plonge dans les jardins français du XVIIIe siècle et leurs secrets.',
         cover: 'images/covers/livre-3.jpg',
         year: 2024,
-        category: 'Fiction',
+        category: 'Tous publics',
         pages: 350,
         isbn: '978-2-1234-5680-2'
     },
@@ -40,7 +40,7 @@ const books = [
         description: 'Une collection de nouvelles qui explorent les résonances du passé dans le présent.',
         cover: 'images/covers/livre-4.jpg',
         year: 2023,
-        category: 'Fiction',
+        category: 'Tous publics',
         pages: 240,
         isbn: '978-2-1234-5681-9'
     },
@@ -51,7 +51,7 @@ const books = [
         description: 'Un conte philosophique sur une cité où les rêves deviennent réalité.',
         cover: 'images/covers/livre-5.jpg',
         year: 2024,
-        category: 'Fiction',
+        category: 'Jeunesse',
         pages: 210,
         isbn: '978-2-1234-5682-6'
     },
@@ -62,7 +62,7 @@ const books = [
         description: 'Les souvenirs et réflexions d\'un éditeur sur quarante ans de carrière dans l\'édition.',
         cover: 'images/covers/livre-6.jpg',
         year: 2023,
-        category: 'Biographie',
+        category: 'Tous publics',
         pages: 320,
         isbn: '978-2-1234-5683-3'
     }
