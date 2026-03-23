@@ -19,8 +19,11 @@ function loadFeaturedBooks() {
         return `
             <article class="border border-gray-200 hover:border-gray-300 transition-colors">
                 <a href="livre/index.html?id=${book.id}" class="block p-6 h-full flex flex-col group">
-                    <div class="aspect-[3/4] bg-gray-50 mb-4 overflow-hidden">
-                        <img src="${book.cover}" alt="Couverture de ${book.title}" class="w-full h-full object-cover">
+                    <div class="aspect-[3/4] bg-gray-50 mb-4 overflow-hidden flex items-center justify-center">
+                        ${book.cover
+                            ? `<img src="${book.cover}" alt="Couverture de ${book.title}" class="w-full h-full object-cover">`
+                            : `<span class="text-gray-300 text-xs text-center px-4">Couverture à venir</span>`
+                        }
                     </div>
                     <h3 class="font-serif text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
                         ${book.title}

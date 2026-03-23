@@ -65,6 +65,50 @@ const books = [
         category: 'Tous publics',
         pages: 320,
         isbn: '978-2-1234-5683-3'
+    },
+    {
+        id: 'livre-7',
+        title: 'La Mécanique des Fadaises',
+        author: 'À compléter',
+        description: 'À compléter.',
+        cover: 'images/covers/mecanique-des-fadaises.jpg',
+        year: 2024,
+        category: 'Tous publics',
+        pages: 0,
+        isbn: 'À compléter'
+    },
+    {
+        id: 'livre-8',
+        title: 'Les Trois Timides',
+        author: 'À compléter',
+        description: 'À compléter.',
+        cover: '',
+        year: 2024,
+        category: 'Jeunesse',
+        pages: 0,
+        isbn: 'À compléter'
+    },
+    {
+        id: 'livre-9',
+        title: 'Guide de l\'Éclairage',
+        author: 'À compléter',
+        description: 'À compléter.',
+        cover: '',
+        year: 2024,
+        category: 'Pratique',
+        pages: 0,
+        isbn: 'À compléter'
+    },
+    {
+        id: 'livre-10',
+        title: 'Galerie des Chroniques Minuscules',
+        author: 'À compléter',
+        description: 'À compléter.',
+        cover: '',
+        year: 2024,
+        category: 'Tous publics',
+        pages: 0,
+        isbn: 'À compléter'
     }
 ];
 
