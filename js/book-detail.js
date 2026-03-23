@@ -45,9 +45,7 @@ function loadBookDetails() {
                 <!-- Couverture -->
                 <div class="flex justify-center lg:justify-start">
                     <div class="w-full max-w-md">
-                        <div class="aspect-[3/4] bg-gray-50 border border-gray-200 flex items-center justify-center">
-                            <span class="text-gray-400 text-sm">Couverture</span>
-                        </div>
+                        <img src="../${book.cover}" alt="Couverture de ${book.title}" class="w-full h-auto border border-gray-200">
                     </div>
                 </div>
                 
