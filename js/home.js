@@ -31,7 +31,7 @@ function loadFeaturedBooks() {
                     <p class="font-sans text-sm text-gray-600 mb-3">${book.author}</p>
                     <p class="font-sans text-sm text-gray-500 line-clamp-3 flex-grow mb-4">${book.description}</p>
                     <div class="pt-4 border-t border-gray-100">
-                        <span class="text-xs text-gray-400">${book.year} • ${book.category}</span>
+                        <span class="text-xs text-gray-400">${book.year} • ${book.category.join(', ')}</span>
                     </div>
                 </a>
             </article>

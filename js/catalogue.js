@@ -33,7 +33,7 @@ function loadAllBooks(category = 'all') {
                 <p class="font-sans text-sm text-gray-500 line-clamp-2 flex-grow mb-4">${book.description}</p>
                 <div class="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
                     <span>${book.year}</span>
-                    <span>${book.category}</span>
+                    <span>${book.category.join(', ')}</span>
                 </div>
             </a>
         </article>

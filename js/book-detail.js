@@ -62,7 +62,7 @@ function loadBookDetails() {
                         <div class="flex items-center gap-4 text-sm text-gray-500">
                             <span>${book.year}</span>
                             <span>•</span>
-                            <span>${book.category}</span>
+                            <span>${book.category.join(', ')}</span>
                             <span>•</span>
                             <span>${book.pages} pages</span>
                         </div>
