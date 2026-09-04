@@ -25,13 +25,13 @@ function loadHeader() {
     header.innerHTML = `
         <header class="bg-cream border-b border-gray-200">
             <nav class="container mx-auto px-6 py-6">
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between gap-4">
                     <div>
                         <a href="${basePath}index.html" class="flex items-center">
                             <img src="${basePath}images/logo-gigabole_bleu-sur-transparent.png" alt="Gigabole éditions" class="h-8 md:h-10">
                         </a>
                     </div>
-                    <ul class="flex items-center space-x-6 font-sans text-sm">
+                    <ul class="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 font-sans text-sm">
                         <li>
                             <a href="${basePath}index.html" class="text-gray-600 hover:text-gray-900 transition-colors ${!isCatalogue && !isLivre ? 'font-semibold text-gray-900' : ''}">
                                 Accueil
@@ -40,6 +40,11 @@ function loadHeader() {
                         <li>
                             <a href="${basePath}catalogue/index.html" class="text-gray-600 hover:text-gray-900 transition-colors ${isCatalogue ? 'font-semibold text-gray-900' : ''}">
                                 Catalogue
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contes-gigabole/" class="text-gray-600 hover:text-gray-900 transition-colors">
+                                Gigabole Kids
                             </a>
                         </li>
                         <li>
@@ -82,6 +87,7 @@ function loadFooter() {
                         <ul class="space-y-2">
                             <li><a href="${basePath}index.html" class="text-gray-600 hover:text-gray-900 text-sm transition-colors">Accueil</a></li>
                             <li><a href="${basePath}catalogue/index.html" class="text-gray-600 hover:text-gray-900 text-sm transition-colors">Catalogue</a></li>
+                            <li><a href="/contes-gigabole/" class="text-gray-600 hover:text-gray-900 text-sm transition-colors">Gigabole Kids</a></li>
                             <li><a href="${basePath}index.html#apropos" class="text-gray-600 hover:text-gray-900 text-sm transition-colors">À propos</a></li>
                             <li><a href="${basePath}index.html#contact" class="text-gray-600 hover:text-gray-900 text-sm transition-colors">Contact</a></li>
                         </ul>
@@ -106,4 +112,3 @@ function loadFooter() {
         </footer>
     `;
 }
-
