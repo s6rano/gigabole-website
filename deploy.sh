@@ -15,10 +15,11 @@ MODE="check"
 
 usage() {
   cat <<'EOF'
-Usage: ./deploy.sh [--check | --remote-dry-run | --apply]
+Usage: ./deploy.sh [--check | --remote-inventory | --remote-dry-run | --apply]
 
   --check           Vérifie localement le snapshot, sans réseau (mode par défaut).
-  --remote-dry-run  Inventorie la cible par SFTP sans écrire ; exige le known_hosts dédié.
+  --remote-inventory Inventorie la cible avec le client SFTP système, sans écrire.
+  --remote-dry-run  Simule le miroir lftp complet, sans écrire.
   --apply           Téléverse sans suppression ; exige une confirmation explicite.
 
 Variable des modes distants :
@@ -42,6 +43,7 @@ fail() {
 while (($# > 0)); do
   case "$1" in
     --check) MODE="check" ;;
+    --remote-inventory) MODE="remote-inventory" ;;
     --remote-dry-run) MODE="remote-dry-run" ;;
     --apply) MODE="apply" ;;
     --help|-h) usage; exit 0 ;;
@@ -75,7 +77,7 @@ if [[ "$MODE" == "apply" ]]; then
     fail "déploiement refusé : confirmation explicite absente"
 fi
 
-if [[ "$MODE" == "remote-dry-run" ]]; then
+if [[ "$MODE" == "remote-inventory" ]]; then
   command -v expect >/dev/null 2>&1 || fail "expect est absent"
   printf 'Prévol SFTP connecté en lecture seule vers le compte chrooté.\n'
   expect "${REPOSITORY_DIR}/tools/sftp-readonly-preflight.exp" "$KNOWN_HOSTS_FILE"
@@ -99,18 +101,25 @@ lftp_escape() {
 }
 
 COMMAND_FILE="$(mktemp -t gigabole-kids-lftp.XXXXXX)"
+PINNED_HOSTS_FILE="$(mktemp -t gigabole-kids-hostkey.XXXXXX)"
 chmod 600 "$COMMAND_FILE"
+chmod 600 "$PINNED_HOSTS_FILE"
+printf '%s\n' "$HOST_KEY_LINE" > "$PINNED_HOSTS_FILE"
 cleanup() {
   SFTP_PASSWORD=""
-  rm -f "$COMMAND_FILE"
+  rm -f "$COMMAND_FILE" "$PINNED_HOSTS_FILE"
 }
 trap cleanup EXIT HUP INT TERM
 
 MIRROR_OPTIONS="-R --verbose"
-printf 'Téléversement SFTP autorisé vers le compte chrooté.\n'
+if [[ "$MODE" == "remote-dry-run" ]]; then
+  MIRROR_OPTIONS+=" --dry-run"
+  printf 'Simulation lftp sans écriture vers le compte chrooté.\n'
+else
+  printf 'Téléversement SFTP autorisé vers le compte chrooté.\n'
+fi
 
-KNOWN_HOSTS_SSH="${KNOWN_HOSTS_FILE// /\\ }"
-CONNECT_PROGRAM="ssh -a -x -p ${SFTP_PORT} -o StrictHostKeyChecking=yes -o HostKeyAlgorithms=+ssh-rsa -o UserKnownHostsFile=${KNOWN_HOSTS_SSH}"
+CONNECT_PROGRAM="ssh -a -x -p ${SFTP_PORT} -o StrictHostKeyChecking=yes -o HostKeyAlgorithms=+ssh-rsa -o UserKnownHostsFile=${PINNED_HOSTS_FILE}"
 {
   printf 'set cmd:fail-exit yes\n'
   printf 'set sftp:connect-program "%s"\n' "$(lftp_escape "$CONNECT_PROGRAM")"
@@ -120,4 +129,5 @@ CONNECT_PROGRAM="ssh -a -x -p ${SFTP_PORT} -o StrictHostKeyChecking=yes -o HostK
   printf 'bye\n'
 } > "$COMMAND_FILE"
 
-lftp -f "$COMMAND_FILE"
+lftp -f "$COMMAND_FILE" 2>&1 | \
+  sed -E 's#sftp://[^/@[:space:]]*@#sftp://[IDENTIFIANTS-MASQUES]@#g'

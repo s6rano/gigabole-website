@@ -19,6 +19,10 @@ node --test tests/phase10-deploy.test.mjs
 `deploy.sh` ne se connecte jamais dans son mode par défaut. Les modes distants restent soumis à la
 checklist et aux autorisations de `docs/PHASE-10-BASCULE.md` dans le dépôt Kids.
 
-Le mode `--remote-dry-run` réalise uniquement un inventaire SFTP en lecture seule. Le mode
-`--apply` reste verrouillé par une confirmation exacte et nécessite `lftp` ; il ne propose aucune
-suppression distante.
+Le mode `--remote-inventory` réalise uniquement un inventaire SFTP en lecture seule. Le mode
+`--remote-dry-run` simule le miroir complet avec `lftp`. Le mode `--apply` reste verrouillé par une
+confirmation exacte. Le script ne propose ni `--delete` ni nettoyage distant ; il peut seulement
+ajouter les fichiers du snapshot ou remplacer leur version bêta antérieure.
+
+Après un upload explicitement autorisé, `node tools/verify-remote-snapshot.mjs` compare par HTTPS
+les tailles et SHA-256 des 31 fichiers Web et du manifeste de snapshot.

@@ -42,7 +42,7 @@ async function remoteEnvironment({ fingerprintValid = true } = {}) {
   );
   await writeFile(
     path.join(bin, 'lftp'),
-    '#!/usr/bin/env bash\nprintf "%s\\n" "$*" > "$GIGABOLE_TEST_ARGUMENTS"\ncp "$2" "$GIGABOLE_TEST_CAPTURE"\n',
+    '#!/usr/bin/env bash\nprintf "%s\\n" "$*" > "$GIGABOLE_TEST_ARGUMENTS"\ncp "$2" "$GIGABOLE_TEST_CAPTURE"\nprintf "get sftp://fixture-user:fixture-password@caberdouche.be/example\\n"\n',
     { mode: 0o755 },
   );
   return {
@@ -69,9 +69,9 @@ test('le prévol refuse une option inconnue et une empreinte différente', async
   assert.match(result.stderr, /empreinte SSH inattendue|not a public key file/);
 });
 
-test('le dry-run est borné au compte chrooté, sans suppression ni secret dans les arguments', async () => {
+test('l’inventaire distant est borné au compte chrooté et strictement en lecture seule', async () => {
   const env = await remoteEnvironment();
-  const result = run(['--remote-dry-run'], {
+  const result = run(['--remote-inventory'], {
     ...env,
     GIGABOLE_SFTP_REMOTE_DIR: '/domains/gigabole.com/public_html/',
   });
@@ -86,6 +86,20 @@ test('le dry-run est borné au compte chrooté, sans suppression ni secret dans 
   assert.doesNotMatch(args, /--delete|mirror-delete|Remove-source-files/i);
 });
 
+test('le dry-run lftp simule le miroir sans suppression ni secret dans les arguments', async () => {
+  const env = await remoteEnvironment();
+  const result = run(['--remote-dry-run'], env);
+  assert.equal(result.status, 0, result.stderr);
+  const [commands, args] = await Promise.all([
+    readFile(env.capture, 'utf8'), readFile(env.argumentCapture, 'utf8'),
+  ]);
+  assert.match(commands, /mirror -R --verbose --dry-run [^\n]+ "\/"/);
+  assert.doesNotMatch(commands, /--delete|mirror-delete|Remove-source-files/i);
+  assert.doesNotMatch(args, /fixture-password/);
+  assert.doesNotMatch(result.stdout, /fixture-password/);
+  assert.match(result.stdout, /IDENTIFIANTS-MASQUES/);
+});
+
 test('le téléversement est refusé sans confirmation exacte', async () => {
   const env = await remoteEnvironment();
   const result = run(['--apply'], env);
@@ -93,7 +107,7 @@ test('le téléversement est refusé sans confirmation exacte', async () => {
   assert.match(result.stderr, /confirmation explicite absente/);
 });
 
-test('un apply confirmé conserve la cible chrootée et n’active aucune suppression', async () => {
+test('un apply confirmé conserve la cible chrootée et n’active aucun nettoyage distant', async () => {
   const env = await remoteEnvironment();
   const result = run(['--apply'], {
     ...env,
@@ -107,7 +121,9 @@ test('un apply confirmé conserve la cible chrootée et n’active aucune suppre
   assert.match(commands, /user "deploygigabolekids@gigabole\.com"/);
   assert.match(commands, /mirror -R --verbose [^\n]+ "\/"/);
   assert.match(commands, /HostKeyAlgorithms=\+ssh-rsa/);
-  assert.match(commands, /Gigabole\\\\ Kids\\\\ SFTP\/known_hosts/);
+  assert.match(commands, /UserKnownHostsFile=\/[^\n"]*gigabole-kids-hostkey/);
   assert.doesNotMatch(commands, /--delete|mirror-delete|Remove-source-files/i);
   assert.doesNotMatch(args, /fixture-password/);
+  assert.doesNotMatch(result.stdout, /fixture-password/);
+  assert.match(result.stdout, /IDENTIFIANTS-MASQUES/);
 });
