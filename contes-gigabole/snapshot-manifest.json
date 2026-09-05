@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source_repository": "gigabole-kids-V2-202609",
-  "source_commit": "b2aee2f4f106574c046e39febc04e86225eedb54",
+  "source_commit": "bf7a6e14165510693725c5feee7eec4e2f12653f",
   "source_tree": "daeb4f5732315c708cfab0d5ffa56c29002e1d27",
   "public_route": "/contes-gigabole/",
   "excluded_source_files": [
