@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1d211d">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Profils — Gigabole Kids</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="./connexion.html" aria-label="Retour à la boîte à lecture Gigabole"><span>Gigabole Kids</span><strong>Boîte à lecture</strong></a>
+        <div class="header-actions"><span id="profile-network-status" class="network-status" role="status">Connexion…</span><button id="profile-sign-out" class="button quiet" type="button" hidden>Se déconnecter</button></div>
+      </header>
+      <section id="profile-boot" class="panel centered" aria-live="polite"><p class="eyebrow">Espace adulte</p><h1>Préparation des profils…</h1></section>
+      <section id="profile-screen" hidden aria-labelledby="profile-title">
+        <p class="eyebrow">Espace adulte</p>
+        <h1 id="profile-title">Profils</h1>
+        <p class="adult-intro">Gérez ici le profil du responsable et les profils des enfants rattachés au compte.</p>
+        <aside id="profile-notice" class="notice" role="status" hidden></aside>
+        <section class="panel profile-panel" aria-labelledby="guardian-title">
+          <p class="eyebrow">Responsable du compte</p><h2 id="guardian-title">Profil du responsable</h2>
+          <form id="profile-form" class="two-columns">
+            <div><label for="first-name">Prénom<input id="first-name" name="first_name" autocomplete="given-name"></label></div>
+            <div><label for="last-name">Nom<input id="last-name" name="last_name" autocomplete="family-name"></label></div>
+            <div><label for="country">Pays<input id="country" name="country" autocomplete="country-name"></label></div>
+            <div class="form-actions"><button class="button" type="submit">Enregistrer le profil</button></div>
+          </form>
+        </section>
+        <section class="panel profile-panel" aria-labelledby="children-title">
+          <div class="section-heading"><div><p class="eyebrow">Enfants du compte</p><h2 id="children-title">Les enfants</h2></div><button id="add-child" class="button secondary" type="button">Ajouter un enfant</button></div>
+          <div id="children-list" class="children-list"></div>
+        </section>
+      </section>
+      <footer class="site-footer"><a href="./connexion.html">← Retour à mes contes</a><a href="./abonnement.html">Mon abonnement</a><button type="button" class="text-button" data-cookie-settings>Gérer mes cookies</button></footer>
+    </main>
+    <dialog id="remove-child-dialog" class="confirm-dialog" aria-labelledby="remove-child-title">
+      <form method="dialog">
+        <p class="eyebrow">Retirer un enfant</p>
+        <h2 id="remove-child-title">Retirer ce profil enfant ?</h2>
+        <p>Êtes-vous sûr de vouloir retirer cet enfant de l’abonnement ?</p>
+        <div class="form-actions"><button class="button danger" value="cancel">Non</button><button class="button quiet" value="confirm">Oui, retirer</button></div>
+      </form>
+    </dialog>
+    <template id="child-template">
+      <form class="child-card"><input name="id" type="hidden"><input name="position" type="hidden">
+        <div class="two-columns">
+          <div><label>Prénom<input name="first_name" autocomplete="off" required></label></div>
+          <div><label>Nom<input name="last_name" autocomplete="off" required></label></div>
+          <div><label>Genre<select name="gender" required><option value="">Choisir</option><option value="fille">Fille</option><option value="garcon">Garçon</option><option value="autre">Autre</option></select></label></div>
+          <div><label>Date de naissance<input name="birth_date" type="date" required></label></div>
+        </div>
+        <div class="form-actions"><button class="button secondary" type="submit">Enregistrer</button><button class="text-button delete-child" type="button">Retirer</button></div>
+        <p class="child-feedback form-feedback" role="alert" hidden></p>
+      </form>
+    </template>
+    <script type="module" src="./js/profile-page.js"></script>
+    <script type="module" src="./js/cookie-consent.js"></script>
+  </body>
+</html>

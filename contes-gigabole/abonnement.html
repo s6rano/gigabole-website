@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1d211d">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Mon abonnement — Gigabole Kids</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="./connexion.html" aria-label="Retour à la boîte à lecture Gigabole">
+          <span>Gigabole Kids</span>
+          <strong>Boîte à lecture</strong>
+        </a>
+        <div class="header-actions">
+          <span id="subscription-network-status" class="network-status" role="status">Connexion…</span>
+          <button id="subscription-sign-out" class="button quiet" type="button" hidden>Se déconnecter</button>
+        </div>
+      </header>
+
+      <section id="subscription-boot" class="panel centered" aria-live="polite">
+        <p class="eyebrow">Espace adulte</p>
+        <h1>Préparation de votre abonnement…</h1>
+      </section>
+
+      <section id="subscription-screen" hidden aria-labelledby="subscription-page-title">
+        <p class="eyebrow">Espace adulte</p>
+        <h1 id="subscription-page-title">Mon abonnement</h1>
+        <p class="adult-intro">Ces informations concernent le responsable de l’abonnement, pas la lecture des enfants.</p>
+        <aside id="subscription-notice" class="notice" role="status" hidden></aside>
+        <article class="panel subscription-details">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Votre formule</p>
+              <h2 id="subscription-name">Chargement…</h2>
+            </div>
+            <span id="subscription-page-state" class="status-badge">…</span>
+          </div>
+          <dl class="details-list">
+            <div><dt>Tarif normal</dt><dd id="subscription-price">—</dd></div>
+            <div><dt>État</dt><dd id="subscription-status">—</dd></div>
+            <div><dt>Début de l’accès</dt><dd id="subscription-start">—</dd></div>
+            <div><dt>Prochaine échéance</dt><dd id="subscription-renewal">—</dd></div>
+          </dl>
+          <section id="subscription-promotion" class="promotion-summary" aria-labelledby="subscription-promotion-title" hidden>
+            <p class="eyebrow">Votre avantage</p>
+            <h3 id="subscription-promotion-title"><span id="subscription-promotion-percent">—</span> de remise</h3>
+            <p>
+              Le code <strong id="subscription-promotion-code">—</strong> s’applique pendant
+              <span id="subscription-promotion-periods">—</span>. La remise reste active jusqu’au
+              <strong id="subscription-promotion-end">—</strong>. Ensuite, l’abonnement revient
+              automatiquement au tarif normal de <strong id="subscription-promotion-normal-price">—</strong>.
+            </p>
+          </section>
+          <section id="scheduled-plan-change" class="promotion-summary scheduled-change-summary" aria-labelledby="scheduled-plan-change-title" hidden>
+            <p class="eyebrow">Changement programmé</p>
+            <h3 id="scheduled-plan-change-title">Passage à <span id="scheduled-plan-name">—</span></h3>
+            <p>
+              Cette formule prendra effet le <strong id="scheduled-plan-date">—</strong>, au tarif normal de
+              <strong id="scheduled-plan-price">—</strong> par mois. Votre formule actuelle reste active jusque-là.
+            </p>
+          </section>
+        </article>
+        <article id="billing-actions" class="panel subscription-details billing-actions" hidden>
+          <div>
+            <p class="eyebrow">Facturation</p>
+            <h2>Gérer mon abonnement</h2>
+            <p class="subtle">Consultez vos factures, modifiez votre moyen de paiement ou résiliez à la fin de la période.</p>
+            <button id="open-billing-portal" class="button" type="button">Paiements, factures et résiliation</button>
+          </div>
+          <form id="change-plan-form">
+            <label for="target-plan">Changer de formule</label>
+            <select id="target-plan" name="plan_slug" required>
+              <option value="">Choisir une formule</option>
+            </select>
+            <p id="plan-change-help" class="field-help">Une formule supérieure prend effet après confirmation du prorata dans Stripe. Une formule inférieure prend effet à la prochaine échéance.</p>
+            <button id="change-plan-submit" class="button secondary" type="submit">Continuer</button>
+          </form>
+        </article>
+        <p id="manual-subscription-help" class="subtle" hidden>La gestion en ligne n’est disponible que pour les abonnements souscrits avec Stripe.</p>
+      </section>
+      <footer class="site-footer">
+        <a href="./connexion.html">← Retour à mes contes</a>
+        <a href="./profil.html">Profils</a>
+        <button type="button" class="text-button" data-cookie-settings>Gérer mes cookies</button>
+      </footer>
+    </main>
+    <dialog id="change-plan-dialog" class="confirm-dialog" aria-labelledby="change-plan-dialog-title">
+      <form method="dialog">
+        <p class="eyebrow">Changer de formule</p>
+        <h2 id="change-plan-dialog-title">Confirmer ce changement ?</h2>
+        <p id="change-plan-dialog-message"></p>
+        <div class="form-actions">
+          <button class="button danger" value="cancel">Non</button>
+          <button id="confirm-plan-change" class="button secondary" value="confirm">Oui, continuer</button>
+        </div>
+      </form>
+    </dialog>
+    <script type="module" src="./js/subscription.js"></script>
+    <script type="module" src="./js/cookie-consent.js"></script>
+  </body>
+</html>

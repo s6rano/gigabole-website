@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1d211d">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Gigabole Kids envoie un conte original à votre famille, avec illustrations et narration audio, selon la formule choisie.">
+    <title>Gigabole Kids — un conte livré à votre famille</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body data-consent-prompt="true" data-analytics-enabled="true">
+    <main class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="Gigabole Kids, accueil">
+          <span>Gigabole</span>
+          <strong>Kids</strong>
+        </a>
+        <div class="header-actions">
+          <a class="text-button" href="./connexion.html">Déjà abonné ? Se connecter</a>
+        </div>
+      </header>
+
+      <section class="home-hero" aria-labelledby="home-title">
+        <p class="eyebrow">Contes illustrés et racontés, par abonnement</p>
+        <h1 id="home-title">Un conte original, livré dans la boîte à lecture de votre famille.</h1>
+        <p class="home-intro">Chaque conte est écrit, illustré et raconté à l’audio, puis relu par un correcteur avant
+          d’être déposé dans un espace personnel — accessible depuis un ordinateur, une tablette ou un téléphone,
+          sans application à installer depuis un magasin.</p>
+        <div class="home-hero-actions">
+          <a class="button" href="#formules">Découvrir les formules</a>
+          <a class="button quiet" href="./connexion.html">Se connecter</a>
+        </div>
+      </section>
+
+      <section class="home-steps" aria-labelledby="home-steps-title">
+        <p class="eyebrow">Fonctionnement</p>
+        <h2 id="home-steps-title">Comment ça marche</h2>
+        <ol class="home-steps-list">
+          <li>
+            <strong>Un conte est écrit et relu.</strong>
+            <p>Chaque conte régulier est généré puis corrigé par un relecteur humain avant sa publication.</p>
+          </li>
+          <li>
+            <strong>Il est déposé selon votre formule.</strong>
+            <p>Les jours de livraison dépendent de la formule choisie : une, deux ou trois fois par semaine.</p>
+          </li>
+          <li>
+            <strong>Votre famille le retrouve dans sa boîte à lecture.</strong>
+            <p>Texte, illustrations et narration audio restent disponibles dans l’espace personnel, protégé par
+              connexion.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="home-plans" id="formules" aria-labelledby="home-plans-title">
+        <p class="eyebrow">Formules</p>
+        <h2 id="home-plans-title">Choisissez un rythme de livraison</h2>
+        <p id="home-plans-loading" class="subtle" role="status">Chargement des formules…</p>
+        <p id="home-plans-empty" class="notice error" role="status" hidden>Aucune formule n’est disponible pour le moment.</p>
+        <p id="home-plans-error" class="notice error" role="alert" hidden>Impossible de charger les formules. Vérifiez le réseau
+          puis réessayez.</p>
+        <div id="home-plans-list" class="home-plan-grid"></div>
+        <div class="home-plans-cta">
+          <a class="button" href="./inscription.html">Commencer l’inscription</a>
+        </div>
+      </section>
+
+      <footer class="site-footer home-footer">
+        <a href="./cgv.html">Conditions générales de vente</a>
+        <a href="./confidentialite.html">Politique de confidentialité</a>
+        <button type="button" class="text-button" data-cookie-settings>Gérer mes cookies</button>
+        <a href="./connexion.html">Se connecter</a>
+      </footer>
+    </main>
+    <template id="home-plan-template">
+      <article class="panel home-plan-card">
+        <h3 class="plan-name"></h3>
+        <p class="plan-price"></p>
+        <p class="plan-days subtle"></p>
+      </article>
+    </template>
+    <script type="module" src="./js/home.js"></script>
+    <script type="module" src="./js/cookie-consent.js"></script>
+  </body>
+</html>

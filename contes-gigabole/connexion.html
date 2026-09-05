@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1d211d">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Boîte à lecture Gigabole</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="./connexion.html" aria-label="Boîte à lecture Gigabole, accueil">
+          <span>Gigabole Kids</span>
+          <strong>Boîte à lecture</strong>
+        </a>
+        <div class="header-actions">
+          <span id="network-status" class="network-status" role="status">Connexion…</span>
+          <button id="sign-out" class="button quiet" type="button" hidden>Se déconnecter</button>
+        </div>
+      </header>
+
+      <section id="boot-screen" class="panel centered" aria-live="polite">
+        <p class="eyebrow">Gigabole Kids</p>
+        <h1>Préparation de votre boîte à lecture…</h1>
+      </section>
+
+      <section id="auth-screen" class="auth-layout" hidden aria-labelledby="auth-title">
+        <div class="intro">
+          <p class="eyebrow">Vos histoires, au même endroit</p>
+          <h1 id="auth-title">Bienvenue dans la boîte à lecture Gigabole.</h1>
+          <p>Connectez-vous pour retrouver les contes déjà déposés pour votre famille.</p>
+          <p><a class="text-button" href="./inscription.html">Pas encore abonné ? Découvrir les formules</a></p>
+        </div>
+        <form id="sign-in-form" class="panel form-panel">
+          <h2>Connexion</h2>
+          <label for="email">Adresse e-mail</label>
+          <input id="email" name="email" type="email" autocomplete="username" required>
+          <label for="password">Mot de passe</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+          <label class="checkbox-label" for="remember-session"><input id="remember-session" name="remember_session" type="checkbox" checked> Rester connecté sur cet appareil</label>
+          <p class="field-help">À décocher sur un ordinateur partagé.</p>
+          <p id="auth-error" class="notice error" role="alert" hidden></p>
+          <button class="button" type="submit">Ouvrir ma boîte à lecture</button>
+          <button id="reset-password" class="text-button" type="button">Mot de passe oublié ?</button>
+        </form>
+      </section>
+
+      <section id="recovery-screen" class="auth-layout" hidden aria-labelledby="recovery-title">
+        <div class="intro">
+          <p class="eyebrow">Sécurité du compte</p>
+          <h1 id="recovery-title">Choisissez un nouveau mot de passe.</h1>
+          <p>Vous pourrez ensuite revenir à la boîte à lecture.</p>
+        </div>
+        <form id="recovery-form" class="panel form-panel">
+          <h2>Nouveau mot de passe</h2>
+          <label for="new-password">Nouveau mot de passe</label>
+          <input id="new-password" name="password" type="password" autocomplete="new-password" minlength="10" required>
+          <label for="confirm-password">Confirmer le mot de passe</label>
+          <input id="confirm-password" name="confirmation" type="password" autocomplete="new-password" minlength="10" required>
+          <p id="recovery-error" class="notice error" role="alert" hidden></p>
+          <button class="button" type="submit">Enregistrer mon nouveau mot de passe</button>
+        </form>
+      </section>
+
+      <section id="app-screen" hidden>
+        <div class="welcome-row">
+          <div>
+            <p class="eyebrow">Espace personnel</p>
+            <h1 id="welcome-title">Mes contes</h1>
+          </div>
+        </div>
+
+        <aside id="app-notice" class="notice" role="status" hidden></aside>
+
+        <section id="stories-section" aria-labelledby="stories-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Vos lectures disponibles</p>
+              <h2 id="stories-title">Mes contes</h2>
+            </div>
+            <button id="stories-refresh" class="button quiet" type="button">Actualiser</button>
+          </div>
+          <p id="stories-loading" class="subtle">Chargement de vos contes…</p>
+          <div id="stories-empty" class="panel empty-state" hidden>
+            <h3>Votre boîte est encore vide.</h3>
+            <p>Le premier conte apparaîtra ici après sa publication.</p>
+          </div>
+          <div id="stories-list" class="story-grid"></div>
+        </section>
+
+        <section id="reader-section" hidden aria-labelledby="reader-title">
+          <button id="reader-back" class="text-button" type="button">← Retour à mes contes</button>
+          <article class="panel reader">
+            <p id="reader-kind" class="eyebrow"></p>
+            <h2 id="reader-title"></h2>
+            <p id="reader-date" class="subtle"></p>
+            <div id="reader-images" class="reader-images"></div>
+            <audio id="reader-audio" controls preload="none" hidden></audio>
+            <div id="reader-body" class="story-body"></div>
+            <aside id="reader-campaign" class="reader-campaign" aria-label="Information Gigabole" hidden></aside>
+            <p id="reader-media-notice" class="subtle" role="status" hidden></p>
+            <button id="refresh-media" class="button quiet" type="button" hidden>Rafraîchir les médias</button>
+          </article>
+        </section>
+      </section>
+      <footer class="site-footer">
+        <a href="./abonnement.html">Mon abonnement</a>
+        <a href="./profil.html">Profils</a>
+        <button type="button" class="text-button" data-cookie-settings>Gérer mes cookies</button>
+        <span>Informations réservées à l’adulte responsable.</span>
+      </footer>
+    </main>
+    <template id="story-card-template">
+      <article class="panel story-card">
+        <p class="eyebrow story-card-kind"></p>
+        <h3 class="story-card-title"></h3>
+        <p class="story-card-date subtle"></p>
+        <button class="button story-card-open" type="button">Lire le conte</button>
+      </article>
+    </template>
+    <script type="module" src="./app.js"></script>
+    <script type="module" src="./js/cookie-consent.js"></script>
+  </body>
+</html>

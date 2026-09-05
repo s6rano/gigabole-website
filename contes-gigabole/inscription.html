@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1d211d">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Cache-Control" content="no-store">
+    <title>Inscription — Gigabole Kids</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="site-shell registration-shell">
+      <header class="site-header"><a class="brand" href="./" aria-label="Gigabole Kids, accueil"><span>Gigabole Kids</span><strong>Inscription</strong></a><a class="text-button" href="./connexion.html">Déjà inscrit ? Se connecter</a></header>
+      <section class="registration-intro" aria-labelledby="registration-title"><p class="eyebrow">Pour les adultes responsables</p><h1 id="registration-title">Commencez votre abonnement.</h1><p>Quelques informations suffisent. Le choix du mot de passe arrive après la confirmation du paiement.</p></section>
+      <ol class="progress-steps" aria-label="Étapes de l’inscription"><li data-step-label="1" aria-current="step">Formule</li><li data-step-label="2">Responsable</li><li data-step-label="3">Enfants</li><li data-step-label="4">Vérification</li></ol>
+      <form id="registration-form" novalidate>
+        <aside id="registration-notice" class="notice" role="alert" aria-live="assertive" hidden></aside>
+        <aside id="registration-session-notice" class="panel registration-session-notice" aria-labelledby="registration-session-title" hidden>
+          <p class="eyebrow">Session en cours</p>
+          <h2 id="registration-session-title">Un compte est déjà connecté.</h2>
+          <p>Vous êtes connecté avec <strong id="registration-session-email"></strong>. Pour éviter de mélanger deux comptes, choisissez comment poursuivre.</p>
+          <div class="form-actions">
+            <button id="use-connected-account" class="button secondary" type="button">Continuer avec cette adresse</button>
+            <button id="registration-sign-out" class="button quiet" type="button">Se déconnecter et inscrire une autre personne</button>
+          </div>
+        </aside>
+        <section class="panel registration-step" data-step="1" aria-labelledby="plans-title"><p class="eyebrow">Étape 1 sur 4</p><h2 id="plans-title" tabindex="-1">Choisissez votre formule</h2><p id="plans-loading" class="subtle" role="status">Chargement des formules…</p><p id="plans-empty" class="notice error" hidden>Aucune formule n’est disponible pour le moment.</p><fieldset id="plan-list" class="plan-list"><legend class="sr-only">Formules actives</legend></fieldset></section>
+        <section class="panel registration-step" data-step="2" hidden aria-labelledby="adult-title"><p class="eyebrow">Étape 2 sur 4</p><h2 id="adult-title" tabindex="-1">Le responsable de l’abonnement</h2><div class="two-columns"><label for="registration-first-name">Prénom<input id="registration-first-name" name="first_name" autocomplete="given-name" required maxlength="100"></label><label for="registration-last-name">Nom<input id="registration-last-name" name="last_name" autocomplete="family-name" required maxlength="100"></label></div><label for="registration-email">Adresse e-mail<input id="registration-email" name="email" type="email" autocomplete="email" required maxlength="320"></label><p class="field-help">C’est à cette adresse que nous enverrons le lien d’activation après confirmation.</p></section>
+        <section class="panel registration-step" data-step="3" hidden aria-labelledby="children-title"><p class="eyebrow">Étape 3 sur 4</p><h2 id="children-title" tabindex="-1">Les enfants concernés</h2><p>Indiquez au moins un enfant. Ces informations sont utilisées pour gérer les profils et les anniversaires.</p><div id="children-list" class="children-list"></div><button id="add-child" class="button secondary" type="button">Ajouter un enfant</button></section>
+        <section class="panel registration-step" data-step="4" hidden aria-labelledby="review-title"><p class="eyebrow">Étape 4 sur 4</p><h2 id="review-title" tabindex="-1">Vérifiez avant le paiement</h2><dl class="details-list registration-summary"><div><dt>Formule</dt><dd id="summary-plan">—</dd></div><div><dt>Responsable</dt><dd id="summary-adult">—</dd></div><div><dt>Enfants</dt><dd id="summary-children">—</dd></div></dl><label for="promo-code">Code promotionnel <span class="optional">(facultatif)</span><input id="promo-code" name="promo_code" autocomplete="off" autocapitalize="characters" maxlength="100"></label><label class="checkbox-label" for="accept-terms"><input id="accept-terms" name="accept_terms" type="checkbox" required> J’accepte les <a href="./cgv.html" target="_blank" rel="noopener">conditions générales de vente</a> (brouillon septembre 2026).</label><label class="checkbox-label" for="accept-privacy"><input id="accept-privacy" name="accept_privacy" type="checkbox" required> J’accepte la <a href="./confidentialite.html" target="_blank" rel="noopener">politique de confidentialité</a> (brouillon septembre 2026).</label><p class="field-help">Vous serez ensuite redirigé vers le paiement sécurisé Stripe. Le paiement est confirmé uniquement par Stripe.</p></section>
+        <div class="registration-actions"><button id="previous-step" class="button quiet" type="button" hidden>Retour</button><button id="next-step" class="button" type="button">Continuer</button><button id="checkout-submit" class="button" type="submit" hidden>Continuer vers le paiement sécurisé</button></div>
+      </form>
+      <footer class="site-footer"><a href="./connexion.html">← Connexion</a><button type="button" class="text-button" data-cookie-settings>Gérer mes cookies</button><span>Les informations d’inscription ne sont pas enregistrées sur cet appareil.</span></footer>
+    </main>
+    <dialog id="remove-child-dialog" class="confirm-dialog" aria-labelledby="remove-child-title"><form method="dialog"><p class="eyebrow">Retirer un enfant</p><h2 id="remove-child-title">Retirer cet enfant ?</h2><p>Confirmez-vous le retrait de cet enfant de cette inscription ?</p><div class="form-actions"><button class="button danger" value="cancel">Non</button><button class="button quiet" value="confirm">Oui, retirer</button></div></form></dialog>
+    <template id="plan-template"><div class="plan-option"><input name="plan_slug" type="radio" required><label><span class="plan-name"></span><strong class="plan-price"></strong><span class="plan-days subtle"></span></label></div></template>
+    <template id="registration-child-template"><fieldset class="registration-child"><legend class="child-number"></legend><div class="two-columns"><label>Prénom<input name="child_first_name" autocomplete="off" required maxlength="100"></label><label>Nom<input name="child_last_name" autocomplete="off" required maxlength="100"></label><label>Genre<select name="child_gender" required><option value="">Choisir</option><option value="fille">Fille</option><option value="garcon">Garçon</option><option value="autre">Autre</option></select></label><label>Date de naissance<input name="child_birth_date" type="date" required></label></div><button class="text-button remove-child" type="button">Retirer cet enfant</button></fieldset></template>
+    <script type="module" src="./js/registration.js"></script>
+    <script type="module" src="./js/cookie-consent.js"></script>
+  </body>
+</html>

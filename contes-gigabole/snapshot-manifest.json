@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "source_repository": "gigabole-kids-V2-202609",
+  "source_commit": "10d36f2d8d5b91f701e969eacbcc5ffa76cfbd4c",
+  "source_tree": "daeb4f5732315c708cfab0d5ffa56c29002e1d27",
+  "public_route": "/contes-gigabole/",
+  "excluded_source_files": [
+    "README.md",
+    "js/config.example.js"
+  ],
+  "files": [
+    {
+      "path": "abonnement.html",
+      "sha256": "f54d8c22cf18240468d151ddc95f33012750a7cf88b751bfbcf8c498fa4a5ae0",
+      "size": 5880
+    },
+    {
+      "path": "activation.html",
+      "sha256": "82876b3b6bf3b5f1c8f5b6ade9c9eb5c230eb700e9dab65ab2b1087a9438a85a",
+      "size": 1905
+    },
+    {
+      "path": "app.js",
+      "sha256": "85edeb626cd0b282007c23f293b44eacac51252e1e909fb1c80631691850d3e9",
+      "size": 11307
+    },
+    {
+      "path": "cgv.html",
+      "sha256": "099f9d934798eeaaab7c76d03153ce8c5b26157998f4b076f84413b79bffe571",
+      "size": 1723
+    },
+    {
+      "path": "confidentialite.html",
+      "sha256": "5d06d8fef0e7e2ee39f1583cea09b7fb2a9cd0d4bb5a5fc96252f5d3db01294b",
+      "size": 1735
+    },
+    {
+      "path": "connexion.html",
+      "sha256": "c503badb0faceb2f940248f2f4c37acf07dc841279582a89f6d7d8961fd06326",
+      "size": 6378
+    },
+    {
+      "path": "index.html",
+      "sha256": "de108663805f88cf8e1c3994abda8443a9f17ffefc99d487eee961eeed80165d",
+      "size": 4200
+    },
+    {
+      "path": "inscription.html",
+      "sha256": "1a2115b612b3679c7953b3aee3371b4540451f6887e549bdec8cead40722d907",
+      "size": 7493
+    },
+    {
+      "path": "js/activation.js",
+      "sha256": "3b550aed666a65ca6e45840e707035d7dcfa800bf0c4971f0913d92d1dc467d6",
+      "size": 4319
+    },
+    {
+      "path": "js/analytics-config.js",
+      "sha256": "48a19430a25152f93df6e7c2f5e457f66b3a4059d724cb2a4e75b41fade5c53a",
+      "size": 147
+    },
+    {
+      "path": "js/auth.js",
+      "sha256": "51cacc9786ac3ddd8568a2402571e522af4cd4c1406f6c26bce58bacb7beb37b",
+      "size": 2051
+    },
+    {
+      "path": "js/config.js",
+      "sha256": "359bb43080dbb9406c1657074171f024a75ef6239d0b747128501626c7d06427",
+      "size": 450
+    },
+    {
+      "path": "js/config.public.js",
+      "sha256": "a74e3150c1a5995c115b7ab11a1fe26f3398faa73d926959ee3d04dab78a10d1",
+      "size": 147
+    },
+    {
+      "path": "js/cookie-consent-core.js",
+      "sha256": "6320012f79d964bbd89aeb1c109140127c23a83604d8cc83a8b1128802fba933",
+      "size": 1417
+    },
+    {
+      "path": "js/cookie-consent.js",
+      "sha256": "e9eadb53ce88d5e7d028f5bc1df25522dd50de0b377b72b3740a3aabfdbc4d59",
+      "size": 4551
+    },
+    {
+      "path": "js/home.js",
+      "sha256": "f5265bf079e73ea51504cf44c9b6304c1c944557e447a11f66d3977fdbafda44",
+      "size": 1060
+    },
+    {
+      "path": "js/payment-return.js",
+      "sha256": "ce37f7cfbac50810e0e84183de6ae533c1c353978c0cc612f9e8d0aacc8f98db",
+      "size": 415
+    },
+    {
+      "path": "js/plans.js",
+      "sha256": "2b5e502e73a960a1090d7bdb87fa4de34688fe7a7cd9adfe4e39be73a21b9ad7",
+      "size": 762
+    },
+    {
+      "path": "js/profile-page.js",
+      "sha256": "fcc6645cf215e2ce5327298e46ff2ffbf75d8a559683e8490e7684ab1238ee36",
+      "size": 5141
+    },
+    {
+      "path": "js/profile.js",
+      "sha256": "72735cccb91f0b15957dfb7b923c8148df58e426bef39dbd879855eddfdc6839",
+      "size": 3817
+    },
+    {
+      "path": "js/registration-core.js",
+      "sha256": "04db7dd7e50de334e6624239a2247e076b2ed405f2d6420b2d7335565050f059",
+      "size": 5832
+    },
+    {
+      "path": "js/registration.js",
+      "sha256": "fcd23f28d0bfc5cf4aa7d18304a71f9307f568ce75ceb3f5196d53f7e21da0af",
+      "size": 10754
+    },
+    {
+      "path": "js/stories.js",
+      "sha256": "f84e289803953382cbd06ea442f5cf5cbb01896aec5050389b1b16d786339991",
+      "size": 2970
+    },
+    {
+      "path": "js/story-format.js",
+      "sha256": "3bbb018e606c90337b5f06008957057144d09a7ab8c555d69eb5ac0edd993408",
+      "size": 2958
+    },
+    {
+      "path": "js/subscription.js",
+      "sha256": "bc30c779ca85fcffb1f6cfff7bcaa14bf250e4c9be0b6ac4e7a6026a59c5cdbe",
+      "size": 11949
+    },
+    {
+      "path": "js/supabase.js",
+      "sha256": "276c9ab063c105180b86a5d5facb4fc305bfc700f257a1a25d447a0895981e11",
+      "size": 2534
+    },
+    {
+      "path": "manifest.webmanifest",
+      "sha256": "a1b778f466ed671f367275fb8ee6b4b3a89882be004310a4b2dd93e42f88140e",
+      "size": 232
+    },
+    {
+      "path": "paiement-retour.html",
+      "sha256": "4616a321e2e9fd44f0aa0d88f65f7e049a73bf880b86cb6d00376594b35a11fb",
+      "size": 1423
+    },
+    {
+      "path": "profil.html",
+      "sha256": "b2511cbc4ba65ae93b5464a8ec550b36756967f290198e22d51a5afaf2bb0c2a",
+      "size": 4466
+    },
+    {
+      "path": "styles.css",
+      "sha256": "16c4f6853c496de809bdf5850906ffb8206dace603b537e55e4aae2c734521b3",
+      "size": 11876
+    },
+    {
+      "path": "sw.js",
+      "sha256": "36413567e1c84a3b5c763f8283c1a58bfcf330736dbac29e187674e1c5f5dad1",
+      "size": 1703
+    }
+  ]
+}
