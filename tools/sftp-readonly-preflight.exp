@@ -1,0 +1,82 @@
+#!/usr/bin/expect -f
+
+# Prévol strictement en lecture seule. Le secret reste en mémoire dans Expect et
+# aucune commande susceptible de modifier le serveur n'est envoyée à sftp.
+set timeout 30
+
+if {$argc != 1} {
+  puts stderr "Usage: sftp-readonly-preflight.exp /chemin/absolu/known_hosts"
+  exit 2
+}
+
+set known_hosts [lindex $argv 0]
+set known_hosts_option [string map [list " " {\ }] $known_hosts]
+set password [string trimright [exec /usr/bin/security find-generic-password -w \
+  -s {Gigabole Kids SFTP} \
+  -a {deploygigabolekids@gigabole.com} \
+  /Library/Keychains/System.keychain]]
+
+if {$password eq "" || [string first "\n" $password] >= 0 || [string first "\r" $password] >= 0} {
+  puts stderr "Erreur : mot de passe SFTP vide ou invalide dans le Trousseau"
+  exit 3
+}
+
+spawn /usr/bin/sftp \
+  -P 2224 \
+  -o BatchMode=no \
+  -o StrictHostKeyChecking=yes \
+  -o HostKeyAlgorithms=+ssh-rsa \
+  -o UserKnownHostsFile=$known_hosts_option \
+  -o User=deploygigabolekids@gigabole.com \
+  caberdouche.be
+
+expect {
+  -re {(?i)password: *$} {
+    send -- "$password\r"
+  }
+  timeout {
+    puts stderr "Erreur : délai dépassé avant l'authentification SFTP"
+    exit 10
+  }
+  eof {
+    puts stderr "Erreur : connexion SFTP interrompue avant l'authentification"
+    exit 11
+  }
+}
+
+set password ""
+
+expect {
+  -re {sftp> $} {}
+  -re {Permission denied} {
+    puts stderr "Erreur : authentification SFTP refusée"
+    exit 12
+  }
+  timeout {
+    puts stderr "Erreur : délai dépassé après l'authentification SFTP"
+    exit 13
+  }
+  eof {
+    puts stderr "Erreur : connexion SFTP interrompue après l'authentification"
+    exit 14
+  }
+}
+
+foreach command [list {pwd} {ls -la} {ls -la js}] {
+  puts "LECTURE_SEULE> $command"
+  send -- "$command\r"
+  expect {
+    -re {sftp> $} {}
+    timeout {
+      puts stderr "Erreur : délai dépassé pendant le prévol SFTP"
+      exit 15
+    }
+    eof {
+      puts stderr "Erreur : connexion SFTP interrompue pendant le prévol"
+      exit 16
+    }
+  }
+}
+
+send -- "bye\r"
+expect eof
