@@ -46,6 +46,12 @@ Le script `deploy.sh` est en lecture locale par défaut. Tout mode distant néce
 approuvés ; `--apply` écrit réellement sur le serveur et exige une autorisation explicite nouvelle.
 Le déploiement est SFTP, chrooté et sans suppression distante — jamais FTP.
 
+Pour une correction exclusivement textuelle dans un ou plusieurs HTML de racine, suivre le runbook
+Kids `docs/PHASE-10-PUBLICATION-EDITORIALE.md`. Après les commits source et snapshot et un seul feu
+vert de publication, lancer une seule fois `deploy.sh --publish-editorial` avec sa confirmation
+exacte. Ce mode regroupe dry-run, allowlist, upload exact et contrôle HTTPS avec une seule lecture
+du Trousseau. Ne pas l'utiliser pour CSS, JavaScript, configuration, média ou backend.
+
 ## Interdictions sans feu vert explicite
 
 - aucun upload SFTP ni modification serveur ;
