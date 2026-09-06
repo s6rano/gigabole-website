@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source_repository": "gigabole-kids-V2-202609",
-  "source_commit": "534061b7b5ba76768632592508317e60be22cd39",
-  "source_tree": "db59a52a256e3b05f10d511a8c5376d6036bbfd0",
+  "source_commit": "38a96c7cf73d4379bc12fc12b687c4e3e2b8a491",
+  "source_tree": "77deeead09833ebe73fd2f5d437f87d3a43f650a",
   "public_route": "/contes-gigabole/",
   "excluded_source_files": [
     "README.md",
@@ -41,8 +41,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "c3815ed40448032b0371852987927da3759193f4b42ceb3119b05a6bf28210ae",
-      "size": 4499
+      "sha256": "6fd1a6f4102997a1b74dddd7eee7a7f87062636492e3a62a480b587bb6be0575",
+      "size": 4501
     },
     {
       "path": "inscription.html",
